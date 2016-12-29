@@ -53,6 +53,7 @@
 #         any([True,True,False]) = True
 
 def cfgempty(grammar,symbol,visited):
+    pass
     # Insert code here!
                     
 # We have provided a few test cases for you. You will likely want to add

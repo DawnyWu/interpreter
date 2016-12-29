@@ -64,7 +64,37 @@ tokens = (
 #
 # Write your code here.
 #
+def t_ANDAND(t):
+    r'&&'
+    return t
 
+def t_COMMA(t):
+    r','
+    return t
+
+def t_DIVIDE(t):
+    r'/'
+    return t
+
+def t_ELSE(t):
+    r'else'
+    return t
+
+def t_EQUAL(t):
+    r'='
+    return t
+
+def t_EQUALEQUAL(t):
+    r'=='
+    return t
+
+def t_LE(t):
+    r'<='
+    return t
+
+def t_LT(t):
+    r'<'
+    return t
 
 t_ignore = ' \t\v\r'  # whitespace
 
@@ -97,14 +127,15 @@ def test_lexer(input_string):
 
 input1 = """ - !  && () * , / ; { || } + < <= = == > >= else false function
 if return true var """
+# input1 = """  && """
 
 output1 = ['MINUS', 'NOT', 'ANDAND', 'LPAREN', 'RPAREN', 'TIMES', 'COMMA',
            'DIVIDE', 'SEMICOLON', 'LBRACE', 'OROR', 'RBRACE', 'PLUS', 'LT', 'LE',
            'EQUAL', 'EQUALEQUAL', 'GT', 'GE', 'ELSE', 'FALSE', 'FUNCTION', 'IF',
            'RETURN', 'TRUE', 'VAR']
 
-print test_lexer(input1)
-print test_lexer(input1) == output1
+# print test_lexer(input1)
+# print test_lexer(input1) == output1
 
 input2 = """
 if // else mystery
@@ -114,4 +145,7 @@ true /* false
 
 output2 = ['IF', 'EQUAL', 'EQUAL', 'TRUE', 'RETURN']
 
-print test_lexer(input2) == output2
+print test_lexer(input2)
+# print test_lexer(input2) == output2
+
+# TODO: set regex greedy, = == difference, comment problem
